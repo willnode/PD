@@ -7,79 +7,258 @@ Sebelum mulai, mari kita mengambil beberapa sampel data
 
 ```python
 import pandas as pd
-df = pd.read_csv('leaf.csv', nrows=9, usecols=['Aspect Ratio'])
-data = [round(x[0],1) for x in df.values]
-df = pd.DataFrame(data, columns=['x'])
-dc = df['x']
-data
+import statistics, itertools
+```
+
+
+```python
+df = pd.read_csv('leaf.csv', nrows=9, usecols=['Aspect Ratio']) # Ambil Sampel
+data = [round(x[0],1) for x in df.values] # Bulat-bulat
+df = pd.DataFrame(data, columns=['sample']); # Data Frame dari Sample
+dc = df['sample'] # Data set kolom sample
+dc
 ```
 
 
 
 
-    [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8]
+    0    1.5
+    1    1.5
+    2    1.6
+    3    1.5
+    4    1.8
+    5    1.5
+    6    1.8
+    7    1.6
+    8    1.8
+    Name: sample, dtype: float64
 
 
 
 Data ini dapat kita deskripsikan menggunakan properti-properti berikut.
 
-# Mean
+## Mean
 
 Mean adalah rata-rata dari suatu dataset. Diperoleh dari sum dataset lalu dibagi dengan jumlah elemen dataset.
 
-
-```python
-print("Rata-rata (DataFrame):", dc.mean())
-print("Rata-rata (Manual):", sum(data)/len(data))
-```
-
-    Rata-rata (DataFrame): 1.6222222222222222
-    Rata-rata (Manual): 1.6222222222222222
-    
-
-# Median
-
-Median merupakan titik data yang paling baik apabila dataset diurutkan menjadi diagonal. Dalam data numerik non interval, data ke-(n-1)/2 adalah median jika n ganjil atau rata-rata dari data ke-(n/2) dan data ke-(n/2+1) jika n genap.
+$$ \overline{x}=\frac{\sum_{i=1}^{N} x_{i}}{N}=\frac{x_{1}+x_{2}+\cdots+x_{N}}{N} $$
 
 
 ```python
-print("Median (DataFrame):", dc.median())
-sorteddata = data[:]; sorteddata.sort(); lendata = len(data); islendataeven = lendata % 2 == 0
-print("Median (Manual):", (sorteddata[lendata//2] + sorteddata[lendata//2+1]) if islendataeven else sorteddata[(lendata-1)//2])
+print("Rata-rata", dc.values, "=", dc.mean())
 ```
 
-    Median (DataFrame): 1.6
-    Median (Manual): 1.6
+    Rata-rata [1.5 1.5 1.6 1.5 1.8 1.5 1.8 1.6 1.8] = 1.6222222222222222
     
 
-# Mode
+Mean dalam built-in python:
 
-Mode merupakan statistik untuk angka mana yang paling banyak jumlahnya dalam dataset.
+
+```python
+print("Rata-rata", data, "=", statistics.mean(data))
+```
+
+    Rata-rata [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] = 1.6222222222222222
+    
+
+## Median
+
+Median merupakan titik data yang paling baik apabila dataset telah diurutkan. Dalam data numerik non interval, data ke-(n-1)/2 adalah median jika n ganjil atau rata-rata dari data ke-(n/2) dan data ke-(n/2+1) jika n genap.
+
+
+```python
+print("Median", dc.values, "=", dc.median())
+```
+
+    Median [1.5 1.5 1.6 1.5 1.8 1.5 1.8 1.6 1.8] = 1.6
+    
+
+Median dalam built-in python:
+
+
+```python
+print("Median", data, "=", statistics.median(data))
+```
+
+    Median [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] = 1.6
+    
+
+Pembuktian dengan menyortir + eliminasi data:
+
+
+```python
+sorteddata = data[:]; sorteddata.sort(); 
+print(sorteddata)
+while(len(sorteddata)>1):
+    sorteddata = sorteddata[1:-1]
+    print(sorteddata)
+```
+
+    [1.5, 1.5, 1.5, 1.5, 1.6, 1.6, 1.8, 1.8, 1.8]
+    [1.5, 1.5, 1.5, 1.6, 1.6, 1.8, 1.8]
+    [1.5, 1.5, 1.6, 1.6, 1.8]
+    [1.5, 1.6, 1.6]
+    [1.6]
+    
+
+## Mode
+
+Mode merupakan statistik untuk angka mana yang paling banyak frekuensinya dalam dataset. Mode bisa dalam bentuk diskrit atau kelompok.
+
+Mode (diskrik) dalam built-in python:
+
+
+```python
+print("Median", data, "=", statistics.mode(data))
+```
+
+    Median [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] = 1.5
+    
+
+`scipy` mempunyai tool untuk mendeteksi mode secara lebih detail jika ada >1 value dengan frekuensi yang sama
 
 
 ```python
 from scipy import stats
+from numpy import transpose
 modedata = stats.mode(dc)
-print("Mode (DataFrame):", modedata.mode[0], "jumlah", modedata.count[0])
+pd.DataFrame(transpose([modedata.mode, modedata.count]), columns=["Mode", "Count"])
 ```
 
-    Mode (DataFrame): 1.5 jumlah 4
-    
 
-# Range
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mode</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1.5</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Gunakan `seaborn` untuk melihat frekuensi secara grafikal:
+
+
+```python
+from seaborn import distplot
+ax = distplot(data)
+```
+
+
+![png](PD_01_Statistik_Deskriptif_files/PD_01_Statistik_Deskriptif_18_0.png)
+
+
+## Range
 Range dalam suatu dataset ialah angka tertinggi dan angka terendah dalam dataset.
 
 
 ```python
-print("Range (DataFrame):", dc.max(), dc.min())
-print("Range (Manual):", max(data), min(data))
+print("Range", dc.values, ", Max:", dc.max(), "Min:", dc.min())
 ```
 
-    Range (DataFrame): 1.8 1.5
+    Range [1.5 1.5 1.6 1.5 1.8 1.5 1.8 1.6 1.8] , Max: 1.8 Min: 1.5
     Range (Manual): 1.8 1.5
     
 
-# Summary
+Range dalam built-in python:
+
+
+```python
+print("Range", data, ", Max:", max(data), "Min:", min(data))
+```
+
+    Range [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] , Max: 1.8 Min: 1.5
+    
+
+## Quantile
+
+Quantil adalah jarak data yang memisahkan data sekin persen dari yang terkecil hingga tertinggi. Quantil dipisah menjadi:
++ Q1 sebagai Quantil bawah (25%) 
++ Q2 sebagai Quantil tengah (50%)
++ Q3 sebagai Quantil atas (75%)
+
+
+```python
+print("Quantil", dc.values, "Q1:", dc.quantile(0.25), "Q2:", dc.quantile(0.5), "Q3:", dc.quantile(0.75))
+```
+
+    Quantil [1.5 1.5 1.6 1.5 1.8 1.5 1.8 1.6 1.8] Q1: 1.5 Q2: 1.6 Q3: 1.8
+    
+
+Quantil bisa dihitung menggunakan `numpy`:
+
+
+```python
+from numpy import quantile
+print("Quantil", data, "Q1:", quantile(data, 0.25), "Q2:", dc.quantile(0.5), "Q3:", dc.quantile(0.75))
+```
+
+    Quantil [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] Q1: 1.5 Q2: 1.6 Q3: 1.8
+    
+
+## Variance
+
+
+```python
+print("Variansi", dc.values, "=", dc.var())
+```
+
+    Variansi [1.5 1.5 1.6 1.5 1.8 1.5 1.8 1.6 1.8] = 0.01944444444444445
+    
+
+
+```python
+print("Variansi", data, "=", statistics.variance(data))
+```
+
+    Variansi [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] = 0.01944444444444445
+    
+
+## Standar Deviasi
+
+
+```python
+print("Standar Deviasi", dc.values, "=", dc.std())
+```
+
+    Standar Deviasi [1.5 1.5 1.6 1.5 1.8 1.5 1.8 1.6 1.8] = 0.1394433377556793
+    
+
+
+```python
+print("Variansi", data, "=", statistics.stdev(data))
+```
+
+    Variansi [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] = 0.1394433377556793
+    
+
+## Summary
 
 Deskripsi Data set dalam `leaf.csv`:
 

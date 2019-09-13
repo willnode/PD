@@ -1,2 +1,15 @@
 site_name: PD (Resume Penambangan Data)
-theme: material
+theme: 
+  name: material
+  palette:
+    primary: teal
+    accent: indigo
+  localization: id
+repo_name: 'willnode/PD'
+repo_url: 'https://github.com/willnode/PD'
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/willnode'
+markdown_extensions:
+  - codehilite
