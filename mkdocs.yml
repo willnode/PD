@@ -11,5 +11,12 @@ extra:
   social:
     - type: 'github'
       link: 'https://github.com/willnode'
+extra_css:
+  - https://fonts.googleapis.com/icon?family=Material+Icons
+extra_javascript:
+  # other extra java script
+  - mathjax-config.js
+  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 markdown_extensions:
   - codehilite
+  - pymdownx.arithmatex
