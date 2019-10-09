@@ -43,7 +43,7 @@ Data ini dapat kita deskripsikan menggunakan properti-properti berikut.
 
 ## Mean
 
-Mean adalah rata-rata dari suatu dataset. Diperoleh dari sum dataset lalu dibagi dengan jumlah elemen dataset.
+Mean adalah rata-rata dari suatu dataset. Diperoleh dari sum dataset lalu dibagi dengan jumlah elemen dataset. Biasa disimbolkan sebagai $\mu$
 
 $$ \overline{x}=\frac{\sum_{i=1}^{N} x_{i}}{N}=\frac{x_{1}+x_{2}+\cdots+x_{N}}{N} $$
 
@@ -156,12 +156,18 @@ Range dalam suatu dataset ialah angka tertinggi dan angka terendah dalam dataset
 print("Range", dc.values, ", Max:", dc.max(), "Min:", dc.min())
 ```
 
+    Range [1.5 1.5 1.6 1.5 1.8 1.5 1.8 1.6 1.8] , Max: 1.8 Min: 1.5
+    
+
 Range dalam built-in python:
 
 
 ```python
 print("Range", data, ", Max:", max(data), "Min:", min(data))
 ```
+
+    Range [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] , Max: 1.8 Min: 1.5
+    
 
 ## Quantile
 
@@ -175,6 +181,9 @@ Quantil adalah jarak data yang memisahkan data sekin persen dari yang terkecil h
 print("Quantil", dc.values, "Q1:", dc.quantile(0.25), "Q2:", dc.quantile(0.5), "Q3:", dc.quantile(0.75))
 ```
 
+    Quantil [1.5 1.5 1.6 1.5 1.8 1.5 1.8 1.6 1.8] Q1: 1.5 Q2: 1.6 Q3: 1.8
+    
+
 Quantil bisa dihitung menggunakan `numpy`:
 
 
@@ -183,29 +192,50 @@ from numpy import quantile
 print("Quantil", data, "Q1:", quantile(data, 0.25), "Q2:", dc.quantile(0.5), "Q3:", dc.quantile(0.75))
 ```
 
+    Quantil [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] Q1: 1.5 Q2: 1.6 Q3: 1.8
+    
+
 ## Variance
+
+Properti tentang seberapa jauh nilai dari rata-rata (alias variasi). Biasa disimbolkan $\sigma^2$
 
 
 ```python
 print("Variansi", dc.values, "=", dc.var())
 ```
 
+    Variansi [1.5 1.5 1.6 1.5 1.8 1.5 1.8 1.6 1.8] = 0.01944444444444445
+    
+
 
 ```python
 print("Variansi", data, "=", statistics.variance(data))
 ```
 
+    Variansi [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] = 0.01944444444444445
+    
+
 ## Standar Deviasi
+
+Standar nilai tentang seberapa jauh data dari mean. Rumus:
+
+$$ \sqrt{\frac{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}{n-1}} $$
 
 
 ```python
 print("Standar Deviasi", dc.values, "=", dc.std())
 ```
 
+    Standar Deviasi [1.5 1.5 1.6 1.5 1.8 1.5 1.8 1.6 1.8] = 0.1394433377556793
+    
+
 
 ```python
 print("Variansi", data, "=", statistics.stdev(data))
 ```
+
+    Variansi [1.5, 1.5, 1.6, 1.5, 1.8, 1.5, 1.8, 1.6, 1.8] = 0.1394433377556793
+    
 
 ## Summary
 
@@ -219,38 +249,35 @@ adata = [[x,
     '{:.2f}'.format(adf[x].median()), 
     '{:.2f}'.format(adf[x].min()), 
     '{:.2f}'.format(adf[x].max()),
-    '{:.2f}'.format(adf[x].quantile(0.25)),
-    '{:.2f}'.format(adf[x].quantile(0.5)), 
-    '{:.2f}'.format(adf[x].quantile(0.75)),
     '{:.2f}'.format(adf[x].skew()),
     '{:.2f}'.format(adf[x].var()),
     '{:.2f}'.format(adf[x].std())] 
         for x in adf.columns[1:]]
 
-table(pd.DataFrame(adata, columns=['Nama Kolom', 'Mean', 'Median', 'Min', 'Max', 'Q1', 'Q2', 'Q3', 'Skew', 'Var', 'Std']))
+table(pd.DataFrame(adata, columns=['Nama Kolom', 'Mean', 'Median', 'Min', 'Max', 'Skew', 'Var', 'Std']))
 ```
 
 
 <table>
 <thead>
-<tr><th>Nama Kolom               </th><th style="text-align: right;">  Mean</th><th style="text-align: right;">  Median</th><th style="text-align: right;">  Min</th><th style="text-align: right;">  Max</th><th style="text-align: right;">  Q1</th><th style="text-align: right;">  Q2</th><th style="text-align: right;">  Q3</th><th style="text-align: right;">  Skew</th><th style="text-align: right;">  Var</th><th style="text-align: right;">  Std</th></tr>
+<tr><th>Nama Kolom               </th><th style="text-align: right;">  Mean</th><th style="text-align: right;">  Median</th><th style="text-align: right;">  Min</th><th style="text-align: right;">  Max</th><th style="text-align: right;">  Skew</th><th style="text-align: right;">  Var</th><th style="text-align: right;">  Std</th></tr>
 </thead>
 <tbody>
-<tr><td>Specimen Number          </td><td style="text-align: right;">  6.28</td><td style="text-align: right;">    6   </td><td style="text-align: right;"> 1   </td><td style="text-align: right;">16   </td><td style="text-align: right;">3   </td><td style="text-align: right;">6   </td><td style="text-align: right;">9   </td><td style="text-align: right;">  0.2 </td><td style="text-align: right;">11.99</td><td style="text-align: right;"> 3.46</td></tr>
-<tr><td>Eccentricity             </td><td style="text-align: right;">  0.72</td><td style="text-align: right;">    0.76</td><td style="text-align: right;"> 0.12</td><td style="text-align: right;"> 1   </td><td style="text-align: right;">0.55</td><td style="text-align: right;">0.76</td><td style="text-align: right;">0.9 </td><td style="text-align: right;"> -0.56</td><td style="text-align: right;"> 0.04</td><td style="text-align: right;"> 0.21</td></tr>
-<tr><td>Aspect Ratio             </td><td style="text-align: right;">  2.44</td><td style="text-align: right;">    1.57</td><td style="text-align: right;"> 1.01</td><td style="text-align: right;">19.04</td><td style="text-align: right;">1.21</td><td style="text-align: right;">1.57</td><td style="text-align: right;">2.34</td><td style="text-align: right;">  3.33</td><td style="text-align: right;"> 6.76</td><td style="text-align: right;"> 2.6 </td></tr>
-<tr><td>Elongation               </td><td style="text-align: right;">  0.51</td><td style="text-align: right;">    0.5 </td><td style="text-align: right;"> 0.11</td><td style="text-align: right;"> 0.95</td><td style="text-align: right;">0.35</td><td style="text-align: right;">0.5 </td><td style="text-align: right;">0.63</td><td style="text-align: right;">  0.34</td><td style="text-align: right;"> 0.04</td><td style="text-align: right;"> 0.2 </td></tr>
-<tr><td>Solidity                 </td><td style="text-align: right;">  0.9 </td><td style="text-align: right;">    0.95</td><td style="text-align: right;"> 0.49</td><td style="text-align: right;"> 0.99</td><td style="text-align: right;">0.89</td><td style="text-align: right;">0.95</td><td style="text-align: right;">0.98</td><td style="text-align: right;"> -2.06</td><td style="text-align: right;"> 0.01</td><td style="text-align: right;"> 0.11</td></tr>
-<tr><td>Stochastic Convexity     </td><td style="text-align: right;">  0.94</td><td style="text-align: right;">    0.99</td><td style="text-align: right;"> 0.4 </td><td style="text-align: right;"> 1   </td><td style="text-align: right;">0.97</td><td style="text-align: right;">0.99</td><td style="text-align: right;">1   </td><td style="text-align: right;"> -2.63</td><td style="text-align: right;"> 0.01</td><td style="text-align: right;"> 0.12</td></tr>
-<tr><td>Isoperimetric Factor     </td><td style="text-align: right;">  0.53</td><td style="text-align: right;">    0.58</td><td style="text-align: right;"> 0.08</td><td style="text-align: right;"> 0.86</td><td style="text-align: right;">0.35</td><td style="text-align: right;">0.58</td><td style="text-align: right;">0.7 </td><td style="text-align: right;"> -0.48</td><td style="text-align: right;"> 0.05</td><td style="text-align: right;"> 0.22</td></tr>
-<tr><td>Maximal Indentation Depth</td><td style="text-align: right;">  0.04</td><td style="text-align: right;">    0.02</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.2 </td><td style="text-align: right;">0.01</td><td style="text-align: right;">0.02</td><td style="text-align: right;">0.05</td><td style="text-align: right;">  1.71</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.04</td></tr>
-<tr><td>Lobedness                </td><td style="text-align: right;">  0.52</td><td style="text-align: right;">    0.1 </td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 7.21</td><td style="text-align: right;">0.02</td><td style="text-align: right;">0.1 </td><td style="text-align: right;">0.42</td><td style="text-align: right;">  3.12</td><td style="text-align: right;"> 1.08</td><td style="text-align: right;"> 1.04</td></tr>
-<tr><td>Average Intensity        </td><td style="text-align: right;">  0.05</td><td style="text-align: right;">    0.04</td><td style="text-align: right;"> 0.01</td><td style="text-align: right;"> 0.19</td><td style="text-align: right;">0.02</td><td style="text-align: right;">0.04</td><td style="text-align: right;">0.07</td><td style="text-align: right;">  0.94</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.04</td></tr>
-<tr><td>Average Contrast         </td><td style="text-align: right;">  0.12</td><td style="text-align: right;">    0.12</td><td style="text-align: right;"> 0.03</td><td style="text-align: right;"> 0.28</td><td style="text-align: right;">0.08</td><td style="text-align: right;">0.12</td><td style="text-align: right;">0.16</td><td style="text-align: right;">  0.47</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.05</td></tr>
-<tr><td>Smoothness               </td><td style="text-align: right;">  0.02</td><td style="text-align: right;">    0.01</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.07</td><td style="text-align: right;">0.01</td><td style="text-align: right;">0.01</td><td style="text-align: right;">0.03</td><td style="text-align: right;">  1.21</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.01</td></tr>
-<tr><td>Third moment             </td><td style="text-align: right;">  0.01</td><td style="text-align: right;">    0   </td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.03</td><td style="text-align: right;">0   </td><td style="text-align: right;">0   </td><td style="text-align: right;">0.01</td><td style="text-align: right;">  1.78</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.01</td></tr>
-<tr><td>Uniformity               </td><td style="text-align: right;">  0   </td><td style="text-align: right;">    0   </td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0   </td><td style="text-align: right;">0   </td><td style="text-align: right;">0   </td><td style="text-align: right;">0   </td><td style="text-align: right;">  2.13</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0   </td></tr>
-<tr><td>Entropy                  </td><td style="text-align: right;">  1.16</td><td style="text-align: right;">    1.08</td><td style="text-align: right;"> 0.17</td><td style="text-align: right;"> 2.71</td><td style="text-align: right;">0.72</td><td style="text-align: right;">1.08</td><td style="text-align: right;">1.55</td><td style="text-align: right;">  0.49</td><td style="text-align: right;"> 0.34</td><td style="text-align: right;"> 0.58</td></tr>
+<tr><td>Specimen Number          </td><td style="text-align: right;">  6.28</td><td style="text-align: right;">    6   </td><td style="text-align: right;"> 1   </td><td style="text-align: right;">16   </td><td style="text-align: right;">  0.2 </td><td style="text-align: right;">11.99</td><td style="text-align: right;"> 3.46</td></tr>
+<tr><td>Eccentricity             </td><td style="text-align: right;">  0.72</td><td style="text-align: right;">    0.76</td><td style="text-align: right;"> 0.12</td><td style="text-align: right;"> 1   </td><td style="text-align: right;"> -0.56</td><td style="text-align: right;"> 0.04</td><td style="text-align: right;"> 0.21</td></tr>
+<tr><td>Aspect Ratio             </td><td style="text-align: right;">  2.44</td><td style="text-align: right;">    1.57</td><td style="text-align: right;"> 1.01</td><td style="text-align: right;">19.04</td><td style="text-align: right;">  3.33</td><td style="text-align: right;"> 6.76</td><td style="text-align: right;"> 2.6 </td></tr>
+<tr><td>Elongation               </td><td style="text-align: right;">  0.51</td><td style="text-align: right;">    0.5 </td><td style="text-align: right;"> 0.11</td><td style="text-align: right;"> 0.95</td><td style="text-align: right;">  0.34</td><td style="text-align: right;"> 0.04</td><td style="text-align: right;"> 0.2 </td></tr>
+<tr><td>Solidity                 </td><td style="text-align: right;">  0.9 </td><td style="text-align: right;">    0.95</td><td style="text-align: right;"> 0.49</td><td style="text-align: right;"> 0.99</td><td style="text-align: right;"> -2.06</td><td style="text-align: right;"> 0.01</td><td style="text-align: right;"> 0.11</td></tr>
+<tr><td>Stochastic Convexity     </td><td style="text-align: right;">  0.94</td><td style="text-align: right;">    0.99</td><td style="text-align: right;"> 0.4 </td><td style="text-align: right;"> 1   </td><td style="text-align: right;"> -2.63</td><td style="text-align: right;"> 0.01</td><td style="text-align: right;"> 0.12</td></tr>
+<tr><td>Isoperimetric Factor     </td><td style="text-align: right;">  0.53</td><td style="text-align: right;">    0.58</td><td style="text-align: right;"> 0.08</td><td style="text-align: right;"> 0.86</td><td style="text-align: right;"> -0.48</td><td style="text-align: right;"> 0.05</td><td style="text-align: right;"> 0.22</td></tr>
+<tr><td>Maximal Indentation Depth</td><td style="text-align: right;">  0.04</td><td style="text-align: right;">    0.02</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.2 </td><td style="text-align: right;">  1.71</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.04</td></tr>
+<tr><td>Lobedness                </td><td style="text-align: right;">  0.52</td><td style="text-align: right;">    0.1 </td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 7.21</td><td style="text-align: right;">  3.12</td><td style="text-align: right;"> 1.08</td><td style="text-align: right;"> 1.04</td></tr>
+<tr><td>Average Intensity        </td><td style="text-align: right;">  0.05</td><td style="text-align: right;">    0.04</td><td style="text-align: right;"> 0.01</td><td style="text-align: right;"> 0.19</td><td style="text-align: right;">  0.94</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.04</td></tr>
+<tr><td>Average Contrast         </td><td style="text-align: right;">  0.12</td><td style="text-align: right;">    0.12</td><td style="text-align: right;"> 0.03</td><td style="text-align: right;"> 0.28</td><td style="text-align: right;">  0.47</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.05</td></tr>
+<tr><td>Smoothness               </td><td style="text-align: right;">  0.02</td><td style="text-align: right;">    0.01</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.07</td><td style="text-align: right;">  1.21</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.01</td></tr>
+<tr><td>Third moment             </td><td style="text-align: right;">  0.01</td><td style="text-align: right;">    0   </td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.03</td><td style="text-align: right;">  1.78</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.01</td></tr>
+<tr><td>Uniformity               </td><td style="text-align: right;">  0   </td><td style="text-align: right;">    0   </td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0   </td><td style="text-align: right;">  2.13</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0   </td></tr>
+<tr><td>Entropy                  </td><td style="text-align: right;">  1.16</td><td style="text-align: right;">    1.08</td><td style="text-align: right;"> 0.17</td><td style="text-align: right;"> 2.71</td><td style="text-align: right;">  0.49</td><td style="text-align: right;"> 0.34</td><td style="text-align: right;"> 0.58</td></tr>
 </tbody>
 </table>
 

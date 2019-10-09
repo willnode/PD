@@ -31,7 +31,6 @@ from sklearn.svm import SVC
 from IPython.display import HTML, display
 from tabulate import tabulate
 
-plt.rcParams["figure.figsize"] = (20,10)
 def table(df): display(HTML(tabulate(df, tablefmt='html', headers='keys', showindex=False)))
 ```
 
@@ -388,7 +387,7 @@ dataset.groupby('class').size()
 
 
 ```python
-dataset.plot(kind='box', subplots=True, layout=(2,4), fig=fig, sharex=False, sharey=False)
+dataset.plot(kind='box', subplots=True, layout=(2,4), figsize=(20,10), sharex=False, sharey=False)
 plt.show()
 ```
 
@@ -399,7 +398,7 @@ plt.show()
 
 ```python
 # histograms
-dataset.hist()
+dataset.hist(figsize=(20,10))
 plt.show()
 ```
 
@@ -409,7 +408,7 @@ plt.show()
 
 
 ```python
-scatter_matrix(dataset)
+scatter_matrix(dataset, figsize=(20,10))
 plt.show()
 ```
 
@@ -452,7 +451,7 @@ print("Training Size & Classifier comparison at seed =", seed)
 
 trainframe = DataFrame(trainset, columns=["Train_size (%)", "LinearDiscriminantAnalysis", "KNeighborsClassifier", "DecisionTreeClassifier", "GaussianNB"])
 
-trainframe.plot(x ='Train_size (%)')
+trainframe.plot(x ='Train_size (%)', figsize=(20,10))
 table(trainframe)
 ```
 
@@ -465,11 +464,11 @@ table(trainframe)
 <tr><th style="text-align: right;">  Train_size (%)</th><th style="text-align: right;">  LinearDiscriminantAnalysis</th><th style="text-align: right;">  KNeighborsClassifier</th><th style="text-align: right;">  DecisionTreeClassifier</th><th style="text-align: right;">  GaussianNB</th></tr>
 </thead>
 <tbody>
-<tr><td style="text-align: right;">             0.1</td><td style="text-align: right;">                    0.933333</td><td style="text-align: right;">              0.948148</td><td style="text-align: right;">                0.925926</td><td style="text-align: right;">    0.948148</td></tr>
-<tr><td style="text-align: right;">             0.2</td><td style="text-align: right;">                    0.966667</td><td style="text-align: right;">              0.933333</td><td style="text-align: right;">                0.916667</td><td style="text-align: right;">    0.933333</td></tr>
-<tr><td style="text-align: right;">             0.3</td><td style="text-align: right;">                    0.980952</td><td style="text-align: right;">              0.980952</td><td style="text-align: right;">                0.971429</td><td style="text-align: right;">    0.961905</td></tr>
-<tr><td style="text-align: right;">             0.4</td><td style="text-align: right;">                    0.977778</td><td style="text-align: right;">              0.977778</td><td style="text-align: right;">                0.966667</td><td style="text-align: right;">    0.966667</td></tr>
-<tr><td style="text-align: right;">             0.5</td><td style="text-align: right;">                    0.986667</td><td style="text-align: right;">              0.946667</td><td style="text-align: right;">                0.92    </td><td style="text-align: right;">    0.96    </td></tr>
+<tr><td style="text-align: right;">             0.1</td><td style="text-align: right;">                    0.933333</td><td style="text-align: right;">              0.948148</td><td style="text-align: right;">                0.918519</td><td style="text-align: right;">    0.948148</td></tr>
+<tr><td style="text-align: right;">             0.2</td><td style="text-align: right;">                    0.966667</td><td style="text-align: right;">              0.933333</td><td style="text-align: right;">                0.908333</td><td style="text-align: right;">    0.933333</td></tr>
+<tr><td style="text-align: right;">             0.3</td><td style="text-align: right;">                    0.980952</td><td style="text-align: right;">              0.980952</td><td style="text-align: right;">                0.933333</td><td style="text-align: right;">    0.961905</td></tr>
+<tr><td style="text-align: right;">             0.4</td><td style="text-align: right;">                    0.977778</td><td style="text-align: right;">              0.977778</td><td style="text-align: right;">                0.922222</td><td style="text-align: right;">    0.966667</td></tr>
+<tr><td style="text-align: right;">             0.5</td><td style="text-align: right;">                    0.986667</td><td style="text-align: right;">              0.946667</td><td style="text-align: right;">                0.973333</td><td style="text-align: right;">    0.96    </td></tr>
 <tr><td style="text-align: right;">             0.6</td><td style="text-align: right;">                    0.983333</td><td style="text-align: right;">              0.983333</td><td style="text-align: right;">                0.966667</td><td style="text-align: right;">    0.95    </td></tr>
 <tr><td style="text-align: right;">             0.7</td><td style="text-align: right;">                    1       </td><td style="text-align: right;">              0.977778</td><td style="text-align: right;">                0.955556</td><td style="text-align: right;">    0.933333</td></tr>
 <tr><td style="text-align: right;">             0.8</td><td style="text-align: right;">                    1       </td><td style="text-align: right;">              1       </td><td style="text-align: right;">                0.966667</td><td style="text-align: right;">    0.966667</td></tr>

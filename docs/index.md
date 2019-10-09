@@ -6,6 +6,7 @@ Penambangan Data, *Data Mining*, *Soli Deo Gloria* of data
 + NIM: 180411100106
 + PEMBIMBING: [@mulaab](https://github.com/mulaab)
 + REFERENSI: <https://mulaab.github.io/datamining>
++ IPYNB SOURCE: <https://github.com/willnode/PD/tree/master/src>
 
 
 
