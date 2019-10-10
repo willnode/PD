@@ -51,7 +51,8 @@ Entropy (keberagaman) kolom target:
 
 $$ E(T) = \sum_{i=1}^n {-P_i\log{P_i}} $$
 
-$P$ = Probability muncul dalam row
+
+dimana $P$ = Rasio Peluang muncul dalam record
 
 
 ```python
@@ -83,7 +84,7 @@ print('entropy target =', entropyTarget)
 
 ## Gain
 
-Gain dalam sebuah fitur (X) untuk data (T):
+Gain dalam sebuah fitur $X$ untuk data $T$:
 
 $$ \operatorname{Gain}(T, X) = \operatorname{Entropy}(T) - \sum_{v\in{T}} \frac{T_{X,v}}{T} E(T_{X,v}) $$
 
@@ -97,7 +98,7 @@ def findGain(column):
     table(groupOutlooks)
     gain = entropyTarget-sum(len(data)/len(df)*sum(-x/len(data)*log(x/len(data),2) 
                 for x in data.groupby('play').size()) for key,data in rawOutlooks)
-    print("gain of",column,"is",gain)
+    print("gain dari '%s': %f" % (column, gain))
     return gain
 
 gains = [[x,findGain(x)] for x in ['outlook','temperature','humidity','windy']]
@@ -116,7 +117,7 @@ gains = [[x,findGain(x)] for x in ['outlook','temperature','humidity','windy']]
 </table>
 
 
-    gain of outlook is 0.2467498197744391
+    gain dari 'outlook': 0.246750
     
 
 
@@ -132,7 +133,7 @@ gains = [[x,findGain(x)] for x in ['outlook','temperature','humidity','windy']]
 </table>
 
 
-    gain of temperature is 0.029222565658954647
+    gain dari 'temperature': 0.029223
     
 
 
@@ -147,7 +148,7 @@ gains = [[x,findGain(x)] for x in ['outlook','temperature','humidity','windy']]
 </table>
 
 
-    gain of humidity is 0.15183550136234136
+    gain dari 'humidity': 0.151836
     
 
 
@@ -162,14 +163,17 @@ gains = [[x,findGain(x)] for x in ['outlook','temperature','humidity','windy']]
 </table>
 
 
-    gain of windy is 0.04812703040826927
+    gain dari 'windy': 0.048127
     
 
 ### Overall Gain Score:
 
 
 ```python
-table(DataFrame(gains, columns=["Feature", "Gain Score"]).sort_values("Gain Score")[::-1])
+result = DataFrame(gains, columns=["Feature", "Gain Score"]).sort_values("Gain Score")[::-1]
+table(result)
+
+print("'%s' mempunyai gain score tertinggi sedangkan '%s' terendah" % (result.values[0,0], result.values[-1,0]))
 ```
 
 
@@ -185,3 +189,6 @@ table(DataFrame(gains, columns=["Feature", "Gain Score"]).sort_values("Gain Scor
 </tbody>
 </table>
 
+
+    'outlook' mempunyai gain score tertinggi sedangkan 'temperature' terendah
+    
