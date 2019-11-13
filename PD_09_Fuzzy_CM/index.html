@@ -1,0 +1,883 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Fuzzy C-Mean Clustering - PD (Resume Penambangan Data)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#fuzzy-c-mean-clustering" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="PD (Resume Penambangan Data)" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PD (Resume Penambangan Data)
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Fuzzy C-Mean Clustering
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/willnode/PD/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    willnode/PD
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="PD (Resume Penambangan Data)" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    PD (Resume Penambangan Data)
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/willnode/PD/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    willnode/PD
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="PD" class="md-nav__link">
+      PD
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_01_Statistik_Deskriptif/" title="Statistik Deskriptif" class="md-nav__link">
+      Statistik Deskriptif
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_02_Jarak_Data/" title="Jarak Data" class="md-nav__link">
+      Jarak Data
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_03_Seleksi_Sampel/" title="Seleksi Sampel" class="md-nav__link">
+      Seleksi Sampel
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_04_Seleksi_Fitur/" title="Seleksi Fitur" class="md-nav__link">
+      Seleksi Fitur
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_05_Decision_Tree/" title="Decision Tree" class="md-nav__link">
+      Decision Tree
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_06_Naive_Bayes/" title="Naive Bayes Classifier" class="md-nav__link">
+      Naive Bayes Classifier
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_07_KNN/" title="K-NN" class="md-nav__link">
+      K-NN
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_08_Clustering/" title="Clustering" class="md-nav__link">
+      Clustering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Fuzzy C-Mean Clustering
+      </label>
+    
+    <a href="./" title="Fuzzy C-Mean Clustering" class="md-nav__link md-nav__link--active">
+      Fuzzy C-Mean Clustering
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-persiapkan-environment" class="md-nav__link">
+    1. Persiapkan Environment:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-persiapkan-input-data-d-m-x-n" class="md-nav__link">
+    2. Persiapkan Input Data (D = m x n):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-siapkan-matrik-derajat-kluster-u-c-x-n" class="md-nav__link">
+    3. Siapkan Matrik Derajat Kluster (U = c x n):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hitung-centroid-tiap-cluster-v-m-x-c" class="md-nav__link">
+    4. Hitung Centroid Tiap Cluster (V = m x c):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-hitung-fungsi-objektif-pada-t-pt" class="md-nav__link">
+    5. Hitung Fungsi Objektif pada t (Pt)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-hitung-ulang-matrik-derajat-kluster-u-c-x-n" class="md-nav__link">
+    6. Hitung Ulang Matrik Derajat Kluster (U = c x n):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-cek-berhenti-atau-loop-kembali" class="md-nav__link">
+    7. Cek Berhenti Atau Loop Kembali
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-ambil-nilai-terbesar-pada-kolom-sebagai-cluster-pada-setiap-record-data" class="md-nav__link">
+    8. Ambil Nilai Terbesar pada Kolom Sebagai Cluster pada setiap Record Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      DPWD
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        DPWD
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DPWD/DPWD_TSP/" title="Traveling Salesman Problem" class="md-nav__link">
+      Traveling Salesman Problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DPWD/DWPD_Iris/" title="Iris Training" class="md-nav__link">
+      Iris Training
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-persiapkan-environment" class="md-nav__link">
+    1. Persiapkan Environment:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-persiapkan-input-data-d-m-x-n" class="md-nav__link">
+    2. Persiapkan Input Data (D = m x n):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-siapkan-matrik-derajat-kluster-u-c-x-n" class="md-nav__link">
+    3. Siapkan Matrik Derajat Kluster (U = c x n):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hitung-centroid-tiap-cluster-v-m-x-c" class="md-nav__link">
+    4. Hitung Centroid Tiap Cluster (V = m x c):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-hitung-fungsi-objektif-pada-t-pt" class="md-nav__link">
+    5. Hitung Fungsi Objektif pada t (Pt)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-hitung-ulang-matrik-derajat-kluster-u-c-x-n" class="md-nav__link">
+    6. Hitung Ulang Matrik Derajat Kluster (U = c x n):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-cek-berhenti-atau-loop-kembali" class="md-nav__link">
+    7. Cek Berhenti Atau Loop Kembali
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-ambil-nilai-terbesar-pada-kolom-sebagai-cluster-pada-setiap-record-data" class="md-nav__link">
+    8. Ambil Nilai Terbesar pada Kolom Sebagai Cluster pada setiap Record Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/willnode/PD/edit/master/docs/PD_09_Fuzzy_CM.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="fuzzy-c-mean-clustering">Fuzzy C-Mean Clustering</h1>
+<p>Fuzzy adalah clustering menggunakan derajat keanggotaan dengan pendekatan incremental.</p>
+<h2 id="steps">Steps</h2>
+<h4 id="1-persiapkan-environment">1. Persiapkan Environment:</h4>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_classif</span>
+
+<span class="k">def</span> <span class="nf">table</span><span class="p">(</span><span class="n">df</span><span class="p">):</span> <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s1">&#39;keys&#39;</span><span class="p">,</span> <span class="n">showindex</span><span class="o">=</span><span class="bp">False</span><span class="p">)))</span>
+</pre></div>
+
+
+<h4 id="2-persiapkan-input-data-d-m-x-n">2. Persiapkan Input Data (D = m x n):</h4>
+<ul>
+<li><code>n</code>: Jumlah Sampel</li>
+<li><code>m</code>: Jumlah Fitur</li>
+<li><code>c</code>: Jumlah Cluster</li>
+<li><code>w</code>: Tingkat blur/fuzzy (biasanya 2)</li>
+<li><code>T</code>: Batas maks Iterasi (biasanya 10)</li>
+<li><code>e</code>: Akurasi (biasanya 0.1)</li>
+<li><code>Pt</code>: Fungsi Objektif ke-t</li>
+<li><code>t</code>: Iterasi ke-t</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">Data</span> <span class="o">=</span> <span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;leaf.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">Data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">[[</span><span class="s1">&#39;Eccentricity&#39;</span><span class="p">,</span><span class="s1">&#39;Solidity&#39;</span><span class="p">,</span> <span class="s1">&#39;Lobedness&#39;</span><span class="p">,</span> <span class="s1">&#39;Entropy&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">Data</span><span class="o">.</span><span class="n">values</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Table (D) &gt;&gt;&quot;</span><span class="p">)</span>
+<span class="n">table</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">Table</span> <span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">&gt;&gt;</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr><th style="text-align: right;">      0</th><th style="text-align: right;">      1</th><th style="text-align: right;">        2</th><th style="text-align: right;">      3</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">0.99593</td><td style="text-align: right;">0.80662</td><td style="text-align: right;">2.7342   </td><td style="text-align: right;">0.27303</td></tr>
+<tr><td style="text-align: right;">0.50692</td><td style="text-align: right;">0.53024</td><td style="text-align: right;">3.0788   </td><td style="text-align: right;">0.67289</td></tr>
+<tr><td style="text-align: right;">0.24465</td><td style="text-align: right;">0.56524</td><td style="text-align: right;">2.854    </td><td style="text-align: right;">0.8331 </td></tr>
+<tr><td style="text-align: right;">0.86545</td><td style="text-align: right;">0.82443</td><td style="text-align: right;">0.40204  </td><td style="text-align: right;">1.0136 </td></tr>
+<tr><td style="text-align: right;">0.82866</td><td style="text-align: right;">0.9418 </td><td style="text-align: right;">0.11857  </td><td style="text-align: right;">1.8038 </td></tr>
+<tr><td style="text-align: right;">0.72719</td><td style="text-align: right;">0.99388</td><td style="text-align: right;">0.0016019</td><td style="text-align: right;">0.9805 </td></tr>
+</tbody>
+</table>
+
+<div class="codehilite"><pre><span></span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">P0</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="o">*</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Variables &gt;&gt;&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot; n = </span><span class="si">%d</span><span class="se">\n</span><span class="s2"> m = </span><span class="si">%d</span><span class="se">\n</span><span class="s2"> c = </span><span class="si">%d</span><span class="se">\n</span><span class="s2"> w = </span><span class="si">%d</span><span class="se">\n</span><span class="s2"> T = </span><span class="si">%d</span><span class="se">\n</span><span class="s2"> e = </span><span class="si">%f</span><span class="se">\n</span><span class="s2"> P0 = </span><span class="si">%d</span><span class="se">\n</span><span class="s2"> t = </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">P0</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Variables</span> <span class="o">&gt;&gt;</span>
+ <span class="n">n</span> <span class="o">=</span> <span class="mi">6</span>
+ <span class="n">m</span> <span class="o">=</span> <span class="mi">4</span>
+ <span class="k">c</span> <span class="o">=</span> <span class="mi">3</span>
+ <span class="n">w</span> <span class="o">=</span> <span class="mi">2</span>
+ <span class="n">T</span> <span class="o">=</span> <span class="mi">10</span>
+ <span class="n">e</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">100000</span>
+ <span class="n">P0</span> <span class="o">=</span> <span class="mi">0</span>
+ <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+
+
+<h4 id="3-siapkan-matrik-derajat-kluster-u-c-x-n">3. Siapkan Matrik Derajat Kluster (U = c x n):</h4>
+<p>Data diisi dengan random atau hasil iterasi lama</p>
+<div class="codehilite"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;U &gt;&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">U</span> <span class="o">&gt;&gt;</span>
+
+<span class="p">[[</span><span class="mi">0</span><span class="p">.</span><span class="mi">6394268</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">02501076</span> <span class="mi">0</span><span class="p">.</span><span class="mi">27502932</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">22321074</span> <span class="mi">0</span><span class="p">.</span><span class="mi">73647121</span> <span class="mi">0</span><span class="p">.</span><span class="mi">67669949</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">89217957</span> <span class="mi">0</span><span class="p">.</span><span class="mi">08693883</span> <span class="mi">0</span><span class="p">.</span><span class="mi">42192182</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">02979722</span> <span class="mi">0</span><span class="p">.</span><span class="mi">21863797</span> <span class="mi">0</span><span class="p">.</span><span class="mi">50535529</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">02653597</span> <span class="mi">0</span><span class="p">.</span><span class="mi">19883765</span> <span class="mi">0</span><span class="p">.</span><span class="mi">64988444</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">54494148</span> <span class="mi">0</span><span class="p">.</span><span class="mi">22044062</span> <span class="mi">0</span><span class="p">.</span><span class="mi">58926568</span><span class="p">]]</span>
+</pre></div>
+
+
+<h4 id="4-hitung-centroid-tiap-cluster-v-m-x-c">4. Hitung Centroid Tiap Cluster (V = m x c):</h4>
+<div>
+<div class="MathJax_Preview"> V_{xy} = \frac{\sum^n_{i=1}(U_{iy})^w\times{D_{ix}}}{\sum^n_{i=1}(U_{iy})^w} </div>
+<script type="math/tex; mode=display"> V_{xy} = \frac{\sum^n_{i=1}(U_{iy})^w\times{D_{ix}}}{\sum^n_{i=1}(U_{iy})^w} </script>
+</div>
+<div class="codehilite"><pre><span></span><span class="c1"># Caution: NP Array is math-agnostic (column-by-column)</span>
+<span class="k">def</span> <span class="nf">cluster</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">y</span><span class="p">]</span><span class="o">**</span><span class="n">w</span><span class="o">*</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span><span class="o">/</span><span class="nb">sum</span><span class="p">([</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">y</span><span class="p">]</span><span class="o">**</span><span class="n">w</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">cluster</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">)])</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;V &gt;&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">V</span> <span class="o">&gt;&gt;</span>
+
+<span class="p">[[</span><span class="mi">0</span><span class="p">.</span><span class="mi">54370379</span> <span class="mi">0</span><span class="p">.</span><span class="mi">70992788</span> <span class="mi">2</span><span class="p">.</span><span class="mi">28168401</span> <span class="mi">0</span><span class="p">.</span><span class="mi">7092545</span> <span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">56356398</span> <span class="mi">0</span><span class="p">.</span><span class="mi">60788268</span> <span class="mi">2</span><span class="p">.</span><span class="mi">50132412</span> <span class="mi">0</span><span class="p">.</span><span class="mi">78491767</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">67635682</span> <span class="mi">0</span><span class="p">.</span><span class="mi">7819355</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">31182068</span> <span class="mi">1</span><span class="p">.</span><span class="mi">05856209</span><span class="p">]]</span>
+</pre></div>
+
+
+<h4 id="5-hitung-fungsi-objektif-pada-t-pt">5. Hitung Fungsi Objektif pada t (Pt)</h4>
+<div>
+<div class="MathJax_Preview"> P_t = \sum^n_{i=1}\sum^c_{k=1}\left(\left[\sum^m_{j=1}\left(D_{ij}-V_{kj}\right)^2\right](U_{ik})^w\right) </div>
+<script type="math/tex; mode=display"> P_t = \sum^n_{i=1}\sum^c_{k=1}\left(\left[\sum^m_{j=1}\left(D_{ij}-V_{kj}\right)^2\right](U_{ik})^w\right) </script>
+</div>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">D</span><span class="p">):</span> <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">sum</span><span class="p">([</span><span class="nb">sum</span><span class="p">([(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">V</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)])</span><span class="o">*</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">**</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">)])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+<span class="n">Pt</span> <span class="o">=</span> <span class="n">objective</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">D</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Pt &gt;&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Pt</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Pt</span> <span class="o">&gt;&gt;</span>
+
+<span class="mi">7</span><span class="p">.</span><span class="mi">165764247017886</span>
+</pre></div>
+
+
+<h4 id="6-hitung-ulang-matrik-derajat-kluster-u-c-x-n">6. Hitung Ulang Matrik Derajat Kluster (U = c x n):</h4>
+<div>
+<div class="MathJax_Preview"> U_{ik} = \frac{\left[\sum^m_{j=1}(D_{ij}-V_{kj})^2\right]^{\frac{-1}{w-1}}}{\sum^c_{k=1}\left[\sum^m_{j=1}(D_{ij}-V_{kj})^2\right]^{\frac{-1}{w-1}}} </div>
+<script type="math/tex; mode=display"> U_{ik} = \frac{\left[\sum^m_{j=1}(D_{ij}-V_{kj})^2\right]^{\frac{-1}{w-1}}}{\sum^c_{k=1}\left[\sum^m_{j=1}(D_{ij}-V_{kj})^2\right]^{\frac{-1}{w-1}}} </script>
+</div>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">converge</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">):</span> <span class="k">return</span> <span class="p">(</span><span class="nb">sum</span><span class="p">([(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">V</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)])</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">w</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span><span class="o">/</span><span class="nb">sum</span><span class="p">([</span><span class="nb">sum</span><span class="p">([(</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">V</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)])</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">w</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">)])</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;U &gt;&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">converge</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nb">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">.</span><span class="mi">42661745</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">47867606</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">09470648</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">32401778</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">61139512</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0645871</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">31857727</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">62718924</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">05423349</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">16315857</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">13281473</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">7040267</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">20677417</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">18023246</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">61299337</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">20507176</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">17092863</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">62399961</span><span class="p">]])</span>
+</pre></div>
+
+
+<h4 id="7-cek-berhenti-atau-loop-kembali">7. Cek Berhenti Atau Loop Kembali</h4>
+<p>Jika $ P_t - P_{t-1} &lt; e $ atau $ t &gt;= T $ maka <strong>BERHENTI</strong></p>
+<p>Jika tidak, ulangi langkah dari <strong>Hitung Centroid Tiap Cluster</strong> </p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">iterate</span><span class="p">(</span><span class="n">U</span><span class="p">):</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">cluster</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">converge</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]),</span> <span class="n">objective</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">D</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fuzzyCM</span><span class="p">(</span><span class="n">U</span><span class="p">):</span>
+    <span class="c1">#U = np.array([[random.uniform(0, 1) for _ in range(c)] for _ in range(n)])</span>
+
+    <span class="n">U</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="o">*</span><span class="n">iterate</span><span class="p">(</span><span class="n">U</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">P2</span> <span class="o">-</span> <span class="n">P</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">e</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">T</span><span class="p">:</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="o">*</span><span class="n">iterate</span><span class="p">(</span><span class="n">U</span><span class="p">),</span> <span class="n">P2</span><span class="p">,</span> <span class="n">t</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">U</span><span class="p">,</span> <span class="n">t</span>
+
+<span class="n">FuzzyResult</span><span class="p">,</span> <span class="n">FuzzyIters</span> <span class="o">=</span> <span class="n">fuzzyCM</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Iterating </span><span class="si">%d</span><span class="s2"> times, fuzzy result &gt;&gt; </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">FuzzyIters</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">FuzzyResult</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Iterating</span> <span class="mi">5</span> <span class="n">times</span><span class="p">,</span> <span class="n">fuzzy</span> <span class="k">result</span> <span class="o">&gt;&gt;</span>
+
+<span class="p">[[</span><span class="mi">9</span><span class="p">.</span><span class="mi">99946808</span><span class="n">e</span><span class="o">-</span><span class="mi">01</span> <span class="mi">4</span><span class="p">.</span><span class="mi">84760420</span><span class="n">e</span><span class="o">-</span><span class="mi">05</span> <span class="mi">4</span><span class="p">.</span><span class="mi">71615530</span><span class="n">e</span><span class="o">-</span><span class="mi">06</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">5</span><span class="p">.</span><span class="mi">97625571</span><span class="n">e</span><span class="o">-</span><span class="mi">02</span> <span class="mi">9</span><span class="p">.</span><span class="mi">36333265</span><span class="n">e</span><span class="o">-</span><span class="mi">01</span> <span class="mi">3</span><span class="p">.</span><span class="mi">90417747</span><span class="n">e</span><span class="o">-</span><span class="mi">03</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">.</span><span class="mi">61938911</span><span class="n">e</span><span class="o">-</span><span class="mi">02</span> <span class="mi">9</span><span class="p">.</span><span class="mi">59438085</span><span class="n">e</span><span class="o">-</span><span class="mi">01</span> <span class="mi">4</span><span class="p">.</span><span class="mi">36802436</span><span class="n">e</span><span class="o">-</span><span class="mi">03</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">97778963</span><span class="n">e</span><span class="o">-</span><span class="mi">02</span> <span class="mi">1</span><span class="p">.</span><span class="mi">70437266</span><span class="n">e</span><span class="o">-</span><span class="mi">02</span> <span class="mi">9</span><span class="p">.</span><span class="mi">63178377</span><span class="n">e</span><span class="o">-</span><span class="mi">01</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">.</span><span class="mi">11702255</span><span class="n">e</span><span class="o">-</span><span class="mi">02</span> <span class="mi">3</span><span class="p">.</span><span class="mi">00196318</span><span class="n">e</span><span class="o">-</span><span class="mi">02</span> <span class="mi">9</span><span class="p">.</span><span class="mi">38810143</span><span class="n">e</span><span class="o">-</span><span class="mi">01</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">40843238</span><span class="n">e</span><span class="o">-</span><span class="mi">02</span> <span class="mi">1</span><span class="p">.</span><span class="mi">23997912</span><span class="n">e</span><span class="o">-</span><span class="mi">02</span> <span class="mi">9</span><span class="p">.</span><span class="mi">73515885</span><span class="n">e</span><span class="o">-</span><span class="mi">01</span><span class="p">]]</span>
+</pre></div>
+
+
+<h4 id="8-ambil-nilai-terbesar-pada-kolom-sebagai-cluster-pada-setiap-record-data">8. Ambil Nilai Terbesar pada Kolom Sebagai Cluster pada setiap Record Data</h4>
+<div class="codehilite"><pre><span></span><span class="n">table</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="o">+</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">FuzzyResult</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)],</span> <span class="n">columns</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;Cluster Index&quot;</span><span class="p">]))</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr><th style="text-align: right;">  Eccentricity</th><th style="text-align: right;">  Solidity</th><th style="text-align: right;">  Lobedness</th><th style="text-align: right;">  Entropy</th><th style="text-align: right;">  Cluster Index</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">       0.99593</td><td style="text-align: right;">   0.80662</td><td style="text-align: right;">  2.7342   </td><td style="text-align: right;">  0.27303</td><td style="text-align: right;">              0</td></tr>
+<tr><td style="text-align: right;">       0.50692</td><td style="text-align: right;">   0.53024</td><td style="text-align: right;">  3.0788   </td><td style="text-align: right;">  0.67289</td><td style="text-align: right;">              1</td></tr>
+<tr><td style="text-align: right;">       0.24465</td><td style="text-align: right;">   0.56524</td><td style="text-align: right;">  2.854    </td><td style="text-align: right;">  0.8331 </td><td style="text-align: right;">              1</td></tr>
+<tr><td style="text-align: right;">       0.86545</td><td style="text-align: right;">   0.82443</td><td style="text-align: right;">  0.40204  </td><td style="text-align: right;">  1.0136 </td><td style="text-align: right;">              2</td></tr>
+<tr><td style="text-align: right;">       0.82866</td><td style="text-align: right;">   0.9418 </td><td style="text-align: right;">  0.11857  </td><td style="text-align: right;">  1.8038 </td><td style="text-align: right;">              2</td></tr>
+<tr><td style="text-align: right;">       0.72719</td><td style="text-align: right;">   0.99388</td><td style="text-align: right;">  0.0016019</td><td style="text-align: right;">  0.9805 </td><td style="text-align: right;">              2</td></tr>
+</tbody>
+</table>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../PD_08_Clustering/" title="Clustering" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Clustering
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../DPWD/DPWD_TSP/" title="Traveling Salesman Problem" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Traveling Salesman Problem
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/willnode" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

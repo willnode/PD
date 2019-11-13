@@ -1,0 +1,908 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Statistik Deskriptif - PD (Resume Penambangan Data)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#statistik-deskriptif" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="PD (Resume Penambangan Data)" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              PD (Resume Penambangan Data)
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Statistik Deskriptif
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/willnode/PD/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    willnode/PD
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="PD (Resume Penambangan Data)" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    PD (Resume Penambangan Data)
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/willnode/PD/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    willnode/PD
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="PD" class="md-nav__link">
+      PD
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Statistik Deskriptif
+      </label>
+    
+    <a href="./" title="Statistik Deskriptif" class="md-nav__link md-nav__link--active">
+      Statistik Deskriptif
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mean" class="md-nav__link">
+    Mean
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#median" class="md-nav__link">
+    Median
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode" class="md-nav__link">
+    Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    Range
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantile" class="md-nav__link">
+    Quantile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variance" class="md-nav__link">
+    Variance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standar-deviasi" class="md-nav__link">
+    Standar Deviasi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_02_Jarak_Data/" title="Jarak Data" class="md-nav__link">
+      Jarak Data
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_03_Seleksi_Sampel/" title="Seleksi Sampel" class="md-nav__link">
+      Seleksi Sampel
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_04_Seleksi_Fitur/" title="Seleksi Fitur" class="md-nav__link">
+      Seleksi Fitur
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_05_Decision_Tree/" title="Decision Tree" class="md-nav__link">
+      Decision Tree
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_06_Naive_Bayes/" title="Naive Bayes Classifier" class="md-nav__link">
+      Naive Bayes Classifier
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_07_KNN/" title="K-NN" class="md-nav__link">
+      K-NN
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_08_Clustering/" title="Clustering" class="md-nav__link">
+      Clustering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../PD_09_Fuzzy_CM/" title="Fuzzy C-Mean Clustering" class="md-nav__link">
+      Fuzzy C-Mean Clustering
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      DPWD
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        DPWD
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DPWD/DPWD_TSP/" title="Traveling Salesman Problem" class="md-nav__link">
+      Traveling Salesman Problem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DPWD/DWPD_Iris/" title="Iris Training" class="md-nav__link">
+      Iris Training
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mean" class="md-nav__link">
+    Mean
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#median" class="md-nav__link">
+    Median
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode" class="md-nav__link">
+    Mode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    Range
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantile" class="md-nav__link">
+    Quantile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variance" class="md-nav__link">
+    Variance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standar-deviasi" class="md-nav__link">
+    Standar Deviasi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/willnode/PD/edit/master/docs/PD_01_Statistik_Deskriptif.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="statistik-deskriptif">Statistik Deskriptif</h1>
+<p>Setiap kelompok data numerik mempunyai properti tersendiri yang menjelaskan secara unik data tersebut:</p>
+<p>Sebelum mulai, mari kita mengambil beberapa sampel data</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statistics</span><span class="o">,</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+
+<span class="k">def</span> <span class="nf">table</span><span class="p">(</span><span class="n">df</span><span class="p">):</span> <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="s1">&#39;keys&#39;</span><span class="p">,</span> <span class="n">showindex</span><span class="o">=</span><span class="bp">False</span><span class="p">)))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;leaf.csv&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Aspect Ratio&#39;</span><span class="p">])</span> <span class="c1"># Ambil Sampel</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">]</span> <span class="c1"># Bulat-bulat</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">]);</span> <span class="c1"># Data Frame dari Sample</span>
+<span class="n">dc</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sample&#39;</span><span class="p">]</span> <span class="c1"># Data set kolom sample</span>
+<span class="n">dc</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="mi">0</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">5</span>
+<span class="mi">1</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">5</span>
+<span class="mi">2</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">6</span>
+<span class="mi">3</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">5</span>
+<span class="mi">4</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">8</span>
+<span class="mi">5</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">5</span>
+<span class="mi">6</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">8</span>
+<span class="mi">7</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">6</span>
+<span class="mi">8</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">8</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">sample</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+
+
+<p>Data ini dapat kita deskripsikan menggunakan properti-properti berikut.</p>
+<h2 id="mean">Mean</h2>
+<p>Mean adalah rata-rata dari suatu dataset. Diperoleh dari sum dataset lalu dibagi dengan jumlah elemen dataset. Biasa disimbolkan sebagai <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span></p>
+<div>
+<div class="MathJax_Preview"> \overline{x}=\frac{\sum_{i=1}^{N} x_{i}}{N}=\frac{x_{1}+x_{2}+\cdots+x_{N}}{N} </div>
+<script type="math/tex; mode=display"> \overline{x}=\frac{\sum_{i=1}^{N} x_{i}}{N}=\frac{x_{1}+x_{2}+\cdots+x_{N}}{N} </script>
+</div>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Rata-rata&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Rata</span><span class="o">-</span><span class="n">rata</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6222222222222222</span>
+</pre></div>
+
+
+<p>Mean dalam built-in python:</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Rata-rata&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Rata</span><span class="o">-</span><span class="n">rata</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6222222222222222</span>
+</pre></div>
+
+
+<h2 id="median">Median</h2>
+<p>Median merupakan titik data yang paling baik apabila dataset telah diurutkan. Dalam data numerik non interval, data ke-(n-1)/2 adalah median jika n ganjil atau rata-rata dari data ke-(n/2) dan data ke-(n/2+1) jika n genap.</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Median&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Median</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span>
+</pre></div>
+
+
+<p>Median dalam built-in python:</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Median&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Median</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span>
+</pre></div>
+
+
+<p>Pembuktian dengan menyortir + eliminasi data:</p>
+<div class="codehilite"><pre><span></span><span class="n">sorteddata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:];</span> <span class="n">sorteddata</span><span class="o">.</span><span class="n">sort</span><span class="p">();</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">sorteddata</span><span class="p">)</span>
+<span class="k">while</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sorteddata</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">sorteddata</span> <span class="o">=</span> <span class="n">sorteddata</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">sorteddata</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">[1.5, 1.5, 1.5, 1.5, 1.6, 1.6, 1.8, 1.8, 1.8]</span>
+<span class="k">[1.5, 1.5, 1.5, 1.6, 1.6, 1.8, 1.8]</span>
+<span class="k">[1.5, 1.5, 1.6, 1.6, 1.8]</span>
+<span class="k">[1.5, 1.6, 1.6]</span>
+<span class="k">[1.6]</span>
+</pre></div>
+
+
+<h2 id="mode">Mode</h2>
+<p>Mode merupakan statistik untuk angka mana yang paling banyak frekuensinya dalam dataset. Mode bisa dalam bentuk diskrit atau kelompok.</p>
+<p>Mode (diskrik) dalam built-in python:</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Median&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Median</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span>
+</pre></div>
+
+
+<p><code>scipy</code> mempunyai tool untuk mendeteksi mode secara lebih detail jika ada &gt;1 value dengan frekuensi yang sama</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">transpose</span>
+<span class="n">modedata</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">dc</span><span class="p">)</span>
+<span class="n">table</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">transpose</span><span class="p">([</span><span class="n">modedata</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span> <span class="n">modedata</span><span class="o">.</span><span class="n">count</span><span class="p">]),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">]))</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr><th style="text-align: right;">  Mode</th><th style="text-align: right;">  Count</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">   1.5</td><td style="text-align: right;">      4</td></tr>
+</tbody>
+</table>
+
+<p>Gunakan <code>seaborn</code> untuk melihat frekuensi secara grafikal:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">seaborn</span> <span class="kn">import</span> <span class="n">distplot</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">distplot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="range">Range</h2>
+<p>Range dalam suatu dataset ialah angka tertinggi dan angka terendah dalam dataset.</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Range&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s2">&quot;, Max:&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Range</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="p">,</span> <span class="k">Max</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="k">Min</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span>
+</pre></div>
+
+
+<p>Range dalam built-in python:</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Range&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;, Max:&quot;</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="s2">&quot;Min:&quot;</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Range</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="p">,</span> <span class="k">Max</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="k">Min</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span>
+</pre></div>
+
+
+<h2 id="quantile">Quantile</h2>
+<p>Quantil adalah jarak data yang memisahkan data sekin persen dari yang terkecil hingga tertinggi. Quantil dipisah menjadi:
++ Q1 sebagai Quantil bawah (25%) 
++ Q2 sebagai Quantil tengah (50%)
++ Q3 sebagai Quantil atas (75%)</p>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Quantil&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s2">&quot;Q1:&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">),</span> <span class="s2">&quot;Q2:&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span> <span class="s2">&quot;Q3:&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Quantil</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="n">Q1</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="n">Q2</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="n">Q3</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span>
+</pre></div>
+
+
+<p>Quantil bisa dihitung menggunakan <code>numpy</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">quantile</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Quantil&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;Q1:&quot;</span><span class="p">,</span> <span class="n">quantile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">),</span> <span class="s2">&quot;Q2:&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span> <span class="s2">&quot;Q3:&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Quantil</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="n">Q1</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="n">Q2</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="n">Q3</span><span class="p">:</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span>
+</pre></div>
+
+
+<h2 id="variance">Variance</h2>
+<p>Properti tentang seberapa jauh nilai dari rata-rata (alias variasi). Biasa disimbolkan <span><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span></p>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Variansi&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Variansi</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">01944444444444445</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Variansi&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">variance</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Variansi</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">01944444444444445</span>
+</pre></div>
+
+
+<h2 id="standar-deviasi">Standar Deviasi</h2>
+<p>Standar nilai tentang seberapa jauh data dari mean. Rumus:</p>
+<div>
+<div class="MathJax_Preview"> \sqrt{\frac{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}{n-1}} </div>
+<script type="math/tex; mode=display"> \sqrt{\frac{\sum_{i=1}^n\left(x_i-\overline{x}\right)^2}{n-1}} </script>
+</div>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Standar Deviasi&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">dc</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Standar</span> <span class="n">Deviasi</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1394433377556793</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Variansi&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Variansi</span> <span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1394433377556793</span>
+</pre></div>
+
+
+<h2 id="summary">Summary</h2>
+<p>Deskripsi Data set dalam <code>leaf.csv</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">adf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;leaf.csv&#39;</span><span class="p">)</span>
+<span class="n">adata</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">,</span> 
+    <span class="s1">&#39;{:.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">adf</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span> 
+    <span class="s1">&#39;{:.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">adf</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()),</span> 
+    <span class="s1">&#39;{:.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">adf</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> 
+    <span class="s1">&#39;{:.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">adf</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span>
+    <span class="s1">&#39;{:.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">adf</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">skew</span><span class="p">()),</span>
+    <span class="s1">&#39;{:.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">adf</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()),</span>
+    <span class="s1">&#39;{:.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">adf</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())]</span> 
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">adf</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+
+<span class="n">table</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Nama Kolom&#39;</span><span class="p">,</span> <span class="s1">&#39;Mean&#39;</span><span class="p">,</span> <span class="s1">&#39;Median&#39;</span><span class="p">,</span> <span class="s1">&#39;Min&#39;</span><span class="p">,</span> <span class="s1">&#39;Max&#39;</span><span class="p">,</span> <span class="s1">&#39;Skew&#39;</span><span class="p">,</span> <span class="s1">&#39;Var&#39;</span><span class="p">,</span> <span class="s1">&#39;Std&#39;</span><span class="p">]))</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr><th>Nama Kolom               </th><th style="text-align: right;">  Mean</th><th style="text-align: right;">  Median</th><th style="text-align: right;">  Min</th><th style="text-align: right;">  Max</th><th style="text-align: right;">  Skew</th><th style="text-align: right;">  Var</th><th style="text-align: right;">  Std</th></tr>
+</thead>
+<tbody>
+<tr><td>Specimen Number          </td><td style="text-align: right;">  6.28</td><td style="text-align: right;">    6   </td><td style="text-align: right;"> 1   </td><td style="text-align: right;">16   </td><td style="text-align: right;">  0.2 </td><td style="text-align: right;">11.99</td><td style="text-align: right;"> 3.46</td></tr>
+<tr><td>Eccentricity             </td><td style="text-align: right;">  0.72</td><td style="text-align: right;">    0.76</td><td style="text-align: right;"> 0.12</td><td style="text-align: right;"> 1   </td><td style="text-align: right;"> -0.56</td><td style="text-align: right;"> 0.04</td><td style="text-align: right;"> 0.21</td></tr>
+<tr><td>Aspect Ratio             </td><td style="text-align: right;">  2.44</td><td style="text-align: right;">    1.57</td><td style="text-align: right;"> 1.01</td><td style="text-align: right;">19.04</td><td style="text-align: right;">  3.33</td><td style="text-align: right;"> 6.76</td><td style="text-align: right;"> 2.6 </td></tr>
+<tr><td>Elongation               </td><td style="text-align: right;">  0.51</td><td style="text-align: right;">    0.5 </td><td style="text-align: right;"> 0.11</td><td style="text-align: right;"> 0.95</td><td style="text-align: right;">  0.34</td><td style="text-align: right;"> 0.04</td><td style="text-align: right;"> 0.2 </td></tr>
+<tr><td>Solidity                 </td><td style="text-align: right;">  0.9 </td><td style="text-align: right;">    0.95</td><td style="text-align: right;"> 0.49</td><td style="text-align: right;"> 0.99</td><td style="text-align: right;"> -2.06</td><td style="text-align: right;"> 0.01</td><td style="text-align: right;"> 0.11</td></tr>
+<tr><td>Stochastic Convexity     </td><td style="text-align: right;">  0.94</td><td style="text-align: right;">    0.99</td><td style="text-align: right;"> 0.4 </td><td style="text-align: right;"> 1   </td><td style="text-align: right;"> -2.63</td><td style="text-align: right;"> 0.01</td><td style="text-align: right;"> 0.12</td></tr>
+<tr><td>Isoperimetric Factor     </td><td style="text-align: right;">  0.53</td><td style="text-align: right;">    0.58</td><td style="text-align: right;"> 0.08</td><td style="text-align: right;"> 0.86</td><td style="text-align: right;"> -0.48</td><td style="text-align: right;"> 0.05</td><td style="text-align: right;"> 0.22</td></tr>
+<tr><td>Maximal Indentation Depth</td><td style="text-align: right;">  0.04</td><td style="text-align: right;">    0.02</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.2 </td><td style="text-align: right;">  1.71</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.04</td></tr>
+<tr><td>Lobedness                </td><td style="text-align: right;">  0.52</td><td style="text-align: right;">    0.1 </td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 7.21</td><td style="text-align: right;">  3.12</td><td style="text-align: right;"> 1.08</td><td style="text-align: right;"> 1.04</td></tr>
+<tr><td>Average Intensity        </td><td style="text-align: right;">  0.05</td><td style="text-align: right;">    0.04</td><td style="text-align: right;"> 0.01</td><td style="text-align: right;"> 0.19</td><td style="text-align: right;">  0.94</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.04</td></tr>
+<tr><td>Average Contrast         </td><td style="text-align: right;">  0.12</td><td style="text-align: right;">    0.12</td><td style="text-align: right;"> 0.03</td><td style="text-align: right;"> 0.28</td><td style="text-align: right;">  0.47</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.05</td></tr>
+<tr><td>Smoothness               </td><td style="text-align: right;">  0.02</td><td style="text-align: right;">    0.01</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.07</td><td style="text-align: right;">  1.21</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.01</td></tr>
+<tr><td>Third moment             </td><td style="text-align: right;">  0.01</td><td style="text-align: right;">    0   </td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.03</td><td style="text-align: right;">  1.78</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0.01</td></tr>
+<tr><td>Uniformity               </td><td style="text-align: right;">  0   </td><td style="text-align: right;">    0   </td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0   </td><td style="text-align: right;">  2.13</td><td style="text-align: right;"> 0   </td><td style="text-align: right;"> 0   </td></tr>
+<tr><td>Entropy                  </td><td style="text-align: right;">  1.16</td><td style="text-align: right;">    1.08</td><td style="text-align: right;"> 0.17</td><td style="text-align: right;"> 2.71</td><td style="text-align: right;">  0.49</td><td style="text-align: right;"> 0.34</td><td style="text-align: right;"> 0.58</td></tr>
+</tbody>
+</table>
+
+<div class="codehilite"><pre><span></span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href=".." title="PD" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                PD
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../PD_02_Jarak_Data/" title="Jarak Data" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Jarak Data
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/willnode" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../mathjax-config.js"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
